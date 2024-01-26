@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { ContactList } from './ContactList/ContactList';
 import { SearchBox } from './SearchBox/SearchBox';
 import { ContactForm } from './ContactForm/ContactForm';
+import { TitlePhonebook } from './Title/Title';
 
 export const App = () => {
   const [contactName, setContactName] = useState('');
@@ -34,7 +35,7 @@ export const App = () => {
 
   return (
     <div className={css.container}>
-      <h1>Phonebook</h1>
+      <TitlePhonebook />
       <ContactForm onAdd={addContact} />
       <SearchBox value={contactName} onChange={setContactName} />
       <ContactList item={search} contact={visibleContacts} onDel={deleteContact} />
