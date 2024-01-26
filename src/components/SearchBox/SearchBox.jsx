@@ -1,3 +1,5 @@
+import css from './SearchBox.module.css';
+
 export const SearchBox = ({ value, onChange }) => {
   return (
     <input
@@ -5,6 +7,7 @@ export const SearchBox = ({ value, onChange }) => {
       value={value}
       onChange={evt => onChange(evt.target.value)}
       placeholder="search"
+      className={css.inputSearch}
     />
   );
 };

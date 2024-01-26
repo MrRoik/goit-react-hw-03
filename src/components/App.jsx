@@ -37,7 +37,7 @@ export const App = () => {
       <h1>Phonebook</h1>
       <ContactForm onAdd={addContact} />
       <SearchBox value={contactName} onChange={setContactName} />
-      <ContactList array={search} items={visibleContacts} onDelete={deleteContact} />
+      <ContactList contact={search} item={visibleContacts} onDel={deleteContact} />
     </div>
   );
 };
