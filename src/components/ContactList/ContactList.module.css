@@ -3,7 +3,7 @@
     flex-direction: column;
     align-content: center;
     gap: 16px;
-    width: 100%;
+    min-width: 300px;
     
 }
 
