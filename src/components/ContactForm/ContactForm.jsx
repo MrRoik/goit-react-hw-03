@@ -2,15 +2,12 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { useId } from 'react';
+import { nanoid } from 'nanoid';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 const contactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Name must be at least 2 symb long')
-    .required('This is a required field'),
-  number: Yup.string()
-    .min(10, 'Name must be at least 10 symb long')
-    .required('This is a required field'),
+  name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
+  number: Yup.string().min(9, 'Too Short!').max(50, 'Too Long!').required('Required'),
 });
 
 export const ContactForm = ({ onAdd }) => {
@@ -26,7 +23,7 @@ export const ContactForm = ({ onAdd }) => {
       validationSchema={contactSchema}
       onSubmit={(values, actions) => {
         console.log(values);
-        onAdd({ id: Date.now(), ...values });
+        onAdd({ id: nanoid(), ...values });
         actions.resetForm();
       }}
     >
