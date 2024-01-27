@@ -30,7 +30,7 @@ export const App = () => {
   };
 
   const visibleContacts = search.filter(contact =>
-    contact.name.toLowerCase().includes(contactName.toLowerCase())
+    contact.name.toLowerCase().trim().includes(contactName.toLowerCase())
   );
 
   return (
